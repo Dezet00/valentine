@@ -291,5 +291,5 @@ window.addEventListener("resize", () => {
 
 // -------------------- YES click: redirect --------------------
 yesBtn.addEventListener("click", () => {
-  window.location.href = "https://dezet00.github.io/Stronkaa/";
+  window.location.href = "https://dezet00.github.io/valentinewebb/";
 });
