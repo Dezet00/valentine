@@ -1,0 +1,129 @@
+:root {
+  --gap: 16px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+    -webkit-user-select: none;
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: system-ui, Arial, sans-serif;
+  background: #0f1220;
+  color: white;
+  overflow: hidden;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--gap);
+  padding: 28px 22px;
+  max-width: 520px;
+  width: min(520px, 92vw);
+  text-align: center;
+  z-index: 1;
+}
+
+.imgbox img {
+  width: 450px;
+  height: 100%;
+  object-fit: cover;
+}
+
+h1 {
+  margin: 0;
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+
+.btnrow {
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+}
+
+button {
+  font-size: 19px;
+  border: none;
+  padding: 11px 17px;
+  border-radius: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.12s ease;
+}
+
+button:active {
+  transform: scale(0.97);
+}
+#yes {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: black;
+    font-size: 19px;
+  border: none;
+  padding: 11px 17px;
+  border-radius: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.12s ease;
+}
+#yes {
+  background: #22c55e;
+}
+
+#no {
+  background: #ef4444;
+  color: white;
+}
+
+#no.escape {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 9999;
+  transition: left 220ms ease, top 220ms ease;
+  will-change: left, top;
+}
+
+#yes {
+  background: #22c55e;
+  transform: scale(1);
+  transform-origin: center;
+  transition: transform 220ms ease; 
+  transition: padding 220ms ease, font-size 220ms ease, min-width 220ms ease;
+}
+
+
+#no-peek{
+  background: #ef4444;
+  color: white;
+  position: fixed;
+  pointer-events: auto; 
+  bottom: 0;
+  z-index: 99999;
+  opacity: 0;
+  transform: translateX(-50%) translateY(130%);
+  will-change: transform, opacity;
+}
+
+#no-peek.peek{
+  opacity: 1;
+  pointer-events: auto;          
+  animation: peekFromBottom 700ms ease-in-out;
+}
+
+@keyframes peekFromBottom{
+  0%   { transform: translateX(-50%) translateY(130%); }
+  35%  { transform: translateX(-50%) translateY(-70%); } 
+  60%  { transform: translateX(-50%) translateY(-70%); }
+  100% { transform: translateX(-50%) translateY(130%); }
+}
